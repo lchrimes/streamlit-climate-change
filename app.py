@@ -157,10 +157,11 @@ if age != 0:
 
   # Carbon written stats displays
   execute_markdown("<p> Intertesing Facts with your data:</p>")
-  if round(tons_sequestered *3.67) < 0.001:
+  co2_released = tons_sequestered * 3.67
+  if round(co2_released) < 0.001:
     execute_markdown(f"<li>Cutting down this tree would lead to < 0.001 tons of CO2 being released </li>")
   else: 
-    execute_markdown(f"<li>Cutting down this tree would lead to {round(tons_sequestered*3.67,3)} tons of CO2 being released </li>")
+    execute_markdown(f"<li>Cutting down this tree would lead to {round(co2_released,3)} tons of CO2 being released </li>")
   execute_markdown(f"<li>To off-set this you would need to plant {trees_needed} tree, costing £{round(cost_of_trees,2)}</li>")
   execute_markdown(f"<li>Or the cost of capturing carbon manually is £{round(cost_of_fill,2)}</li>")
 
