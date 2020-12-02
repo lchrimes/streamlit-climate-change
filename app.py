@@ -196,12 +196,16 @@ st.plotly_chart(fig)
 # Total carbon sequestered over life time
 total_sequestered_values = np.array(list(total_sequestered.values()))* 0.00045359237
 sequestered_data = pd.DataFrame({"Tree" : total_sequestered.keys() , "Total Sequestered" : total_sequestered_values})
+
 fig = px.bar(sequestered_data, x='Tree', y='Total Sequestered', log_y=True)
 fig.update_layout(
   title="Maximal Carbon Sequestered Over Lifespan",
   xaxis_title="Tree Type",
-  yaxis_title="Carbon Sequestered log(tonne)"
+  yaxis_title="Carbon Sequestered log(tonne)",
+  plot_bgcolor='rgba(0,0,0,0)',
   )
+fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
+fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
 st.plotly_chart(fig)
 
 
