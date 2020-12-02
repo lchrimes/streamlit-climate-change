@@ -163,7 +163,11 @@ if age != 0:
     execute_markdown(f"<li>Cutting down this tree would lead to {round(tons_sequestered,3)} tons of carbon being released </li>")
   execute_markdown(f"<li>To off-set this you would need to plant {trees_needed} tree, costing £{round(cost_of_trees,2)}</li>")
   execute_markdown(f"<li>Or the cost of capturing carbon manually is £{round(cost_of_fill,2)}</li>")
-  st.markdown(tree_icons(trees_needed), unsafe_allow_html=True)
+
+  # Expander for the tree area
+  tree_expander = st.beta_expander("Trees Cut Down")
+  with tree_expander:
+    st.markdown(tree_icons(trees_needed), unsafe_allow_html=True)
 
 # Carbon Sequestered by all tree types
 fig = go.Figure()
