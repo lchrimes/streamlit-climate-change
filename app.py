@@ -8,7 +8,7 @@ import plotly.express as px
 
 
 # Changing title page and the favicon - set page call only be called once per app and only at the start
-st.set_page_config(page_title='Climate Awareness')
+st.set_page_config(page_title='Climate Awareness', page_icon="static/images/favicon_symbol.png")
 
 # Loading carbon data
 @st.cache
@@ -163,7 +163,7 @@ if age != 0:
   else: 
     execute_markdown(f"<li>Cutting down this tree would lead to {round(co2_total,3)} tons of CO2 being released </li>")
   execute_markdown(f"<li>To off-set this you would need to plant {trees_needed} tree, costing £{round(cost_of_trees,2)}</li>")
-  execute_markdown(f"<li>Or the cost of capturing carbon manually is £{round(cost_of_fill,2)}</li>")
+  execute_markdown(f"<li>Or to capture the carbon manually would cost approx £{round(cost_of_fill,2)}</li>")
 
   # Expander for the tree area
   tree_expander = st.beta_expander("Visualise the trees that need planting")
