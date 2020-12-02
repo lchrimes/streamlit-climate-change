@@ -35,17 +35,17 @@ life_span = {
 
 total_sequestered = {
   'Maple': 54,
-#  'Oak': 1450,
+ 'Oak': 1450,
  'Sycamore': 348,
  'Pine': 19,
-#  'Fir': 1450,
+ 'Fir': 1450,
  'Elm': 10,
  'Willow': 2,
  'Magnolia': 6,
  'Birch': 1,
  'Tulip': 211,
- 'Butternut': 2,}
-#  'Cedar': 1450}
+ 'Butternut': 2,
+  'Cedar': 1450}
 
 # Adding sytle sheet
 def remote_css(url):
@@ -196,11 +196,11 @@ st.plotly_chart(fig)
 # Total carbon sequestered over life time
 total_sequestered_values = np.array(list(total_sequestered.values()))* 0.00045359237
 sequestered_data = pd.DataFrame({"Tree" : total_sequestered.keys() , "Total Sequestered" : total_sequestered_values})
-fig = px.bar(sequestered_data, x='Tree', y='Total Sequestered')
+fig = px.bar(sequestered_data, x='Tree', y='Total Sequestered', log_y=True)
 fig.update_layout(
   title="Maximal Carbon Sequestered Over Lifespan",
   xaxis_title="Tree Type",
-  yaxis_title="Carbon Sequestered (tonne)"
+  yaxis_title="Carbon Sequestered log(tonne)"
   )
 st.plotly_chart(fig)
 
