@@ -53,8 +53,10 @@ def remote_css(url):
 def execute_markdown(markdown):
   st.markdown(markdown, unsafe_allow_html=True)
 
-# font-awsome addition
+# font-awsome addition for icons
 remote_css("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+
+# Add some bootstrap css
 execute_markdown('<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">')
 
 # hiding the streamlit menu and footer
@@ -94,9 +96,9 @@ execute_markdown(open("static/paragraphs/intro.html","r").read())
 # User input into columns
 c1 , c2 = st.beta_columns((2,2))
 
-with c1:
+with c1: # user input to col one
   age = st.number_input("What is the age of your tree?",  step=1, value=0)
-with c2:
+with c2: # user input to col two
   tree = st.selectbox(
         "Tree Species", # Label
         [ # Tree type list
@@ -122,7 +124,7 @@ def tree_icons(number):
 # If user input do graphs
 if age != 0:
 
-    # Sample data
+  # Sample data
   x = np.arange(60)
   y = carbon_sequestered_df[tree].values * 0.00045359237 # all values are being converted to tons
 
@@ -194,12 +196,9 @@ fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black
 fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
 st.plotly_chart(fig, use_column_width=True)
 
-
 # Impact Paragraph
 st.header("Our Impact Can Be Felt")
 execute_markdown(open("static/paragraphs/impact.html","r").read())
-
-# oxford embeddings
 
 # Oxford Graphics - Global CO2 emissions
 execute_markdown('<iframe src="https://ourworldindata.org/grapher/co-emissions-per-capita?tab=chart&stackMode=absolute&region=World" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>')
@@ -208,6 +207,5 @@ execute_markdown('<iframe src="https://ourworldindata.org/grapher/co-emissions-p
 execute_markdown('<iframe src="https://ourworldindata.org/grapher/annual-deforestation?stackMode=absolute&region=World" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>')
 
 # Sponsor
-
 execute_markdown(open("static/paragraphs/sponsorship.html","r").read())
 st.image("https://thelandtrust.org.uk/wp-content/uploads/2015/09/Woodland-Trust.png", use_column_width=True)
