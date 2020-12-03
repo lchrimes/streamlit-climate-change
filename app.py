@@ -100,7 +100,7 @@ carbon_sequestered_df = load_carbon_data()
 st.header("The Great Carbon Sink")
 
 # Article Image
-st.image("https://cdn.pixabay.com/photo/2015/12/01/20/28/green-1072828_1280.jpg", width=800)
+st.image("https://cdn.pixabay.com/photo/2015/12/01/20/28/green-1072828_1280.jpg", use_column_width=True)
 
 # Intro
 execute_markdown(open("static/paragraphs/intro.html","r").read())
