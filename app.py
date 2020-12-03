@@ -8,7 +8,7 @@ import plotly.express as px
 
 
 # Changing title page and the favicon - set page call only be called once per app and only at the start
-st.set_page_config(page_title='Climate Awareness', page_icon="static/images/favicon_symbol.png")
+st.set_page_config(page_title='Climate Awareness', page_icon=file_to_base64("static/images/favicon_symbol.png"))
 
 # Loading carbon data
 @st.cache
