@@ -91,7 +91,7 @@ st.header("The Great Carbon Sink")
 st.image("https://cdn.pixabay.com/photo/2015/12/01/20/28/green-1072828_1280.jpg", use_column_width=True)
 
 # Intro
-execute_markdown(open("static/paragraphs/intro.html","r").read())
+execute_markdown(open("static/html/intro.html","r").read())
 
 # User input into columns
 c1 , c2 = st.beta_columns((2,2))
@@ -198,7 +198,7 @@ st.plotly_chart(fig, use_column_width=True)
 
 # Impact Paragraph
 st.header("Our Impact Can Be Felt")
-execute_markdown(open("static/paragraphs/impact.html","r").read())
+execute_markdown(open("static/html/impact.html","r").read())
 
 # Oxford Graphics - Global CO2 emissions
 execute_markdown('<iframe src="https://ourworldindata.org/grapher/co-emissions-per-capita?tab=chart&stackMode=absolute&region=World" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>')
@@ -207,5 +207,5 @@ execute_markdown('<iframe src="https://ourworldindata.org/grapher/co-emissions-p
 execute_markdown('<iframe src="https://ourworldindata.org/grapher/annual-deforestation?stackMode=absolute&region=World" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>')
 
 # Sponsor
-execute_markdown(open("static/paragraphs/sponsorship.html","r").read())
+execute_markdown(open("static/html/sponsorship.html","r").read())
 st.image("https://thelandtrust.org.uk/wp-content/uploads/2015/09/Woodland-Trust.png", use_column_width=True)
