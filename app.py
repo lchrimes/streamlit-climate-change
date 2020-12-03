@@ -14,7 +14,6 @@ st.set_page_config(page_title='Climate Awareness', page_icon=file_to_base64("sta
 @st.cache
 def load_carbon_data():
   carbonSequesteredDf = pd.read_csv("static/data/TheGreatCarbonSinkInfo-Carbon-Rate.csv")
-
   return carbonSequesteredDf
 
 # Max lifespan for each tree type
@@ -51,9 +50,6 @@ total_sequestered = {
 def remote_css(url):
   st.markdown(f'<link href="{url}" rel="stylesheet">', unsafe_allow_html=True)
 
-def icon_css(icone_name):
-  remote_css('https://fonts.googleapis.com/icon?family=Material+Icons')
-
 def execute_markdown(markdown):
   st.markdown(markdown, unsafe_allow_html=True)
 
@@ -73,25 +69,15 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # Adding the company app logo
 logo_image = file_to_base64("static/images/Databound_DATAdiscovery-01.png")
 
-logo_styling = """
-<style>
-.logo-div {
-border: 5px black;
-padding : 20px;
-}
-</style>
-"""
-
 logo_add = f"""
 <div class="logo-div">
 <a href="https://databound.co.uk">
-  <img src="data:image/png;base64, {logo_image}" alt="Red dot" width="450px" heigth="600px"/>
+  <img src="data:image/png;base64, {logo_image}" alt="Red dot" width="450px" heigth="600px" style="padding:10px;"/>
 </a>
 </div>
 """
 
-logo_div = logo_styling +logo_add
-st.markdown(logo_div,unsafe_allow_html=True)
+st.markdown(logo_add,unsafe_allow_html=True)
 
 # Loading data in dataframe
 carbon_sequestered_df = load_carbon_data()
