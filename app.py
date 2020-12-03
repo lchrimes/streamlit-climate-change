@@ -191,7 +191,7 @@ fig.update_layout(
   yaxis_title="Carbon Sequestered (tonne)"
 )
 
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_column_width=True)
 
 # Total carbon sequestered over life time
 total_sequestered_values = np.array(list(total_sequestered.values()))* 0.00045359237
@@ -206,7 +206,7 @@ fig.update_layout(
   )
 fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
 fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_column_width=True)
 
 
 # Impact Paragraph
@@ -224,3 +224,4 @@ execute_markdown('<iframe src="https://ourworldindata.org/grapher/annual-defores
 # Sponsor
 
 execute_markdown(open("static/paragraphs/sponsorship.html","r").read())
+st.image("https://thelandtrust.org.uk/wp-content/uploads/2015/09/Woodland-Trust.png", use_column_width=True)
