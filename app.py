@@ -211,9 +211,8 @@ execute_markdown('<iframe src="https://ourworldindata.org/grapher/annual-defores
 execute_markdown(open("static/html/sponsorship.html","r").read())
 
 # Sponsorship button to nav to site
-url = 'https://www.woodlandtrust.org.uk/support-us/give/donations/'
-if st.button('Click here to donate'):
-    webbrowser.open_new_tab(url)
+link = '[Click here to donate](https://www.woodlandtrust.org.uk/support-us/give/donations/)'
+st.markdown(link, unsafe_allow_html=True)
 
 # Sponsorship logo
 st.image("https://thelandtrust.org.uk/wp-content/uploads/2015/09/Woodland-Trust.png", use_column_width=True)
