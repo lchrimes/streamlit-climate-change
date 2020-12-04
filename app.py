@@ -190,22 +190,22 @@ fig.update_layout(
   yaxis_title="Carbon Sequestered log(tonne)",
   plot_bgcolor='rgba(0,0,0,0)',
   )
-fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
-fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
+fig.update_xaxes(showline=True, linewidth=2, linecolor='#B4B1B0', gridcolor='#B4B1B0')
+fig.update_yaxes(showline=True, linewidth=2, linecolor='#B4B1B0', gridcolor='#B4B1B0')
 st.plotly_chart(fig, use_column_width=True)
 
 # The average household
 st.header("The Average Household")
 execute_markdown(open("static/html/carbon_footprint.html","r").read())
 
-carbon_average  = pd.DataFrame({"Consumption" : carbon_metrics.keys() , "Carbon Emissions (tonnes)" : carbon_metrics.values()})
-fig = px.bar(carbon_average, x='Consumption', y='Carbon Emissions (tonnes)')
+carbon_average  = pd.DataFrame({"Consumption" : carbon_metrics.keys() , "Carbon Emissions (tonne)" : carbon_metrics.values()})
+fig = px.bar(carbon_average, x='Consumption', y='Carbon Emissions (tonne)')
 fig.update_layout(
   title="Yearly UK Average Household Carbon Emissions",
   plot_bgcolor='rgba(0,0,0,0)',
   )
-fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
-fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
+fig.update_xaxes(showline=True, linewidth=2, linecolor='#B4B1B0', gridcolor='#B4B1B0')
+fig.update_yaxes(showline=True, linewidth=2, linecolor='#B4B1B0', gridcolor='#B4B1B0')
 st.plotly_chart(fig, use_column_width=True)
 
 # Impact Paragraph
