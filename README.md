@@ -37,7 +37,9 @@ In making this application the following source where used:
 - Butternut Lifespan - https://en.wikipedia.org/wiki/Juglans_cinerea#:~:text=Butternut%20is%20a%20slow%2Dgrowing,diameter%2C%20with%20light%20gray%20bark.
 - Cedar Lifespan - https://www.gardeningknowhow.com/ornamental/trees/cedar/growing-lebanon-cedar-trees.htm#:~:text=Lebanon%20cedar%20trees%20usually%20have,span%20of%20over%201%2C000%20years.			
 - Oak weight - https://sylva.org.uk/oneoak/tree_facts.php			
-- fir weight - https://everythingwhat.com/how-heavy-is-a-tree		
+- fir weight - https://everythingwhat.com/how-heavy-is-a-tree
+- The CCC - https://www.theccc.org.uk/wp-content/uploads/2016/07/5CB-Infographic-FINAL-.pdf
+- The independent - https://www.independent.co.uk/voices/climate-change-carbon-emissions-family-household-flights-vegan-a9203096.html		
 
 ## License
 [Databound Limited](https://databound.co.uk)

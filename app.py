@@ -17,7 +17,7 @@ def load_carbon_data():
   carbonSequesteredDf = pd.read_csv("static/data/TheGreatCarbonSinkInfo-Carbon-Rate.csv")
   return carbonSequesteredDf
 
-# Max lifespan for each tree type
+# Static data
 life_span = {
 "Maple" : 300,
 "Oak" : 1000,
@@ -46,6 +46,17 @@ total_sequestered = {
  'Tulip': 211,
  'Butternut': 2,
   'Cedar': 1450}
+
+carbon_metrics = {
+    "House Build" : 65,
+    "General consumerism" : 16,
+    "Family flight to Spain" : 10,
+    "Meat based diet" : 12,
+    "UK average mileage" : 4.6,
+    "Gas central heating" : 2.25,
+    "Electricity" : 0.75,
+    "Water supply" : 0.2
+}
 
 # Adding sytle sheet
 def remote_css(url):
@@ -192,6 +203,20 @@ fig.update_layout(
   title="Estimated Maximal Carbon Sequestered Over Lifespan",
   xaxis_title="Tree Type",
   yaxis_title="Carbon Sequestered log(tonne)",
+  plot_bgcolor='rgba(0,0,0,0)',
+  )
+fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
+fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
+st.plotly_chart(fig, use_column_width=True)
+
+# The average household
+st.header("The Average House Hold")
+execute_markdown(open("static/html/carbon_footprint.html","r").read())
+
+carbon_average  = pd.DataFrame({"Consumption" : carbon_metrics.keys() , "Carbon Emissions (tonnes)" : carbon_metrics.values()})
+fig = px.bar(carbon_average, x='Consumption', y='Carbon Emissions (tonnes)')
+fig.update_layout(
+  title="Yearly UK Average Household Carbon Emissions",
   plot_bgcolor='rgba(0,0,0,0)',
   )
 fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
