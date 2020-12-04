@@ -210,7 +210,7 @@ fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black
 st.plotly_chart(fig, use_column_width=True)
 
 # The average household
-st.header("The Average House Hold")
+st.header("The Average Household")
 execute_markdown(open("static/html/carbon_footprint.html","r").read())
 
 carbon_average  = pd.DataFrame({"Consumption" : carbon_metrics.keys() , "Carbon Emissions (tonnes)" : carbon_metrics.values()})
