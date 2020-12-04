@@ -144,17 +144,17 @@ if age != 0:
   cost_of_fill = tons_sequestered * 60
 
   # Carbon written stats displays
-  execute_markdown("<p> Intertesing Facts with your data:</p>")
+  execute_markdown("<p> Intertesting Facts with your data:</p>")
   co2_total = tons_sequestered * 3.6 # relative amount of co2
   if round(co2_total,3) < 0.001:
     execute_markdown(f"<li>Cutting down this tree would lead to < 0.001 tons of CO2 being released </li>")
   else: 
     execute_markdown(f"<li>Cutting down this tree would lead to {round(co2_total,3)} tons of CO2 being released </li>")
-  execute_markdown(f"<li>To off-set this you would need to plant {trees_needed} tree, costing £{round(cost_of_trees,2)}</li>")
+  execute_markdown(f"<li>To off-set this you would need to plant {trees_needed} tree(s), costing £{round(cost_of_trees,2)}</li>")
   execute_markdown(f"<li>Or to capture the carbon manually would cost approx £{round(cost_of_fill,2)}</li>")
 
   # Expander for the tree area
-  tree_expander = st.beta_expander("Visualise the saplings")
+  tree_expander = st.beta_expander("Visualising the saplings")
   with tree_expander:
     st.markdown(tree_icons(trees_needed), unsafe_allow_html=True)
 
@@ -187,7 +187,7 @@ sequestered_data = pd.DataFrame({"Tree" : total_sequestered.keys() , "Total Sequ
 
 fig = px.bar(sequestered_data, x='Tree', y='Total Sequestered', log_y=True)
 fig.update_layout(
-  title="Maximal Carbon Sequestered Over Lifespan",
+  title="Estimated Maximal Carbon Sequestered Over Lifespan",
   xaxis_title="Tree Type",
   yaxis_title="Carbon Sequestered log(tonne)",
   plot_bgcolor='rgba(0,0,0,0)',
