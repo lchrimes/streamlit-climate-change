@@ -172,56 +172,65 @@ if age != 0:
     st.markdown(tree_icons(trees_needed), unsafe_allow_html=True)
 
 # Carbon Sequestered by all tree types
-fig = go.Figure()
+@st.cache
+def carbon_sequester_all_plot():
+  fig = go.Figure()
 
-for tree in carbon_sequestered_df.columns[1:]:
-    x = np.arange(60)
-    y = carbon_sequestered_df[tree].values * 0.00045359237
+  for tree in carbon_sequestered_df.columns[1:]:
+      x = np.arange(60)
+      y = carbon_sequestered_df[tree].values * 0.00045359237
 
-    # Fit with polyfit
-    p = np.poly1d(np.polyfit(x, y, 2))
-    fig.add_trace(go.Scatter(
-        x=x,
-        y=y,
-        name=tree
-    ))
+      # Fit with polyfit
+      p = np.poly1d(np.polyfit(x, y, 2))
+      fig.add_trace(go.Scatter(
+          x=x,
+          y=y,
+          name=tree
+      ))
 
-fig.update_layout(
-  title=f"Average Carbon Sequestered Annually",
-  xaxis_title="Tree Age (years)",
-  yaxis_title="Carbon Sequestered (tonne)"
-)
+  fig.update_layout(
+    title=f"Average Carbon Sequestered Annually",
+    xaxis_title="Tree Age (years)",
+    yaxis_title="Carbon Sequestered (tonne)"
+  )
+  return fig
 
-st.plotly_chart(fig, use_column_width=True)
+st.plotly_chart(carbon_sequester_all_plot(), use_column_width=True)
 
 # Total carbon sequestered over life time
-total_sequestered_values = np.array(list(total_sequestered.values()))* 0.00045359237
-sequestered_data = pd.DataFrame({"Tree" : total_sequestered.keys() , "Total Sequestered" : total_sequestered_values})
+@st.cache
+def carbon_sequester_lifetime_plot():
+  total_sequestered_values = np.array(list(total_sequestered.values()))* 0.00045359237
+  sequestered_data = pd.DataFrame({"Tree" : total_sequestered.keys() , "Total Sequestered" : total_sequestered_values})
 
-fig = px.bar(sequestered_data, x='Tree', y='Total Sequestered', log_y=True)
-fig.update_layout(
-  title="Estimated Maximal Carbon Sequestered Over Lifespan",
-  xaxis_title="Tree Type",
-  yaxis_title="Carbon Sequestered log(tonne)",
-  plot_bgcolor='rgba(0,0,0,0)',
-  )
-fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
-fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
-st.plotly_chart(fig, use_column_width=True)
+  fig = px.bar(sequestered_data, x='Tree', y='Total Sequestered', log_y=True)
+  fig.update_layout(
+    title="Estimated Maximal Carbon Sequestered Over Lifespan",
+    xaxis_title="Tree Type",
+    yaxis_title="Carbon Sequestered log(tonne)",
+    plot_bgcolor='rgba(0,0,0,0)',
+    )
+  fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
+  fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
+  return fig
+st.plotly_chart(carbon_sequester_lifetime_plot(), use_column_width=True)
 
 # The average household
 st.header("The Average Household")
 execute_markdown(open("static/html/carbon_footprint.html","r").read())
 
-carbon_average  = pd.DataFrame({"Consumption" : carbon_metrics.keys() , "Carbon Emissions (tonnes)" : carbon_metrics.values()})
-fig = px.bar(carbon_average, x='Consumption', y='Carbon Emissions (tonnes)')
-fig.update_layout(
-  title="Yearly UK Average Household Carbon Emissions",
-  plot_bgcolor='rgba(0,0,0,0)',
-  )
-fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
-fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
-st.plotly_chart(fig, use_column_width=True)
+@st.cache
+def average_household_plot():
+  carbon_average  = pd.DataFrame({"Consumption" : carbon_metrics.keys() , "Carbon Emissions (tonnes)" : carbon_metrics.values()})
+  fig = px.bar(carbon_average, x='Consumption', y='Carbon Emissions (tonnes)')
+  fig.update_layout(
+    title="Yearly UK Average Household Carbon Emissions",
+    plot_bgcolor='rgba(0,0,0,0)',
+    )
+  fig.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
+  fig.update_yaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black')
+  return fig
+st.plotly_chart(average_household_plot(), use_column_width=True)
 
 # Impact Paragraph
 st.header("Our Impact Can Be Felt")
