@@ -70,17 +70,18 @@ footer {visibility: hidden;}
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 # Adding the company app logo
-logo_image = file_to_base64("static/images/Databound_DATAdiscovery-01.png")
+st.image("static/images/Databound_DATAdiscovery-01.png", use_column_width=True)
+# logo_image = file_to_base64("static/images/Databound_DATAdiscovery-01.png")
 
-logo_add = f"""
-<div class="logo-div">
-<a href="https://databound.co.uk">
-  <img src="data:image/png;base64, {logo_image}" alt="Red dot" width="450px" heigth="600px" style="padding:10px;"/>
-</a>
-</div>
-"""
+# logo_add = f"""
+# <div class="logo-div">
+# <a href="https://databound.co.uk">
+#   <img src="data:image/png;base64, {logo_image}" alt="Red dot" width="450px" heigth="600px" style="padding:10px;"/>
+# </a>
+# </div>
+# """
 
-st.markdown(logo_add,unsafe_allow_html=True)
+# st.markdown(logo_add,unsafe_allow_html=True)
 
 # Loading data in dataframe
 carbon_sequestered_df = load_carbon_data()
