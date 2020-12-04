@@ -154,7 +154,7 @@ if age != 0:
   execute_markdown(f"<li>Or to capture the carbon manually would cost approx £{round(cost_of_fill,2)}</li>")
 
   # Expander for the tree area
-  tree_expander = st.beta_expander("Visualise the trees that need planting")
+  tree_expander = st.beta_expander("Visualise the saplings")
   with tree_expander:
     st.markdown(tree_icons(trees_needed), unsafe_allow_html=True)
 
