@@ -177,7 +177,7 @@ fig.update_layout(
   xaxis_title="Tree Age (years)",
   yaxis_title="Carbon Sequestered (tonne)"
 )
-st.plotly_chart(fig, use_column_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
 # Total carbon sequestered over life time
 total_sequestered_values = np.array(list(total_sequestered.values()))* 0.00045359237
@@ -192,7 +192,7 @@ fig.update_layout(
   )
 fig.update_xaxes(showline=True, linewidth=2, linecolor='#B4B1B0', gridcolor='#B4B1B0')
 fig.update_yaxes(showline=True, linewidth=2, linecolor='#B4B1B0', gridcolor='#B4B1B0')
-st.plotly_chart(fig, use_column_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
 # The average household
 st.header("The Average Household")
@@ -206,7 +206,7 @@ fig.update_layout(
   )
 fig.update_xaxes(showline=True, linewidth=2, linecolor='#B4B1B0', gridcolor='#B4B1B0')
 fig.update_yaxes(showline=True, linewidth=2, linecolor='#B4B1B0', gridcolor='#B4B1B0')
-st.plotly_chart(fig, use_column_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
 # Impact Paragraph
 st.header("Our Impact Can Be Felt")
