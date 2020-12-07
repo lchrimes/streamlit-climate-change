@@ -101,7 +101,7 @@ with c1: # user input to col one
   age = st.number_input("What is the age of your tree?",  step=1, value=0)
 with c2: # user input to col two
   tree = st.selectbox(
-        "Tree Species", # Label
+        "Tree Type", # Label
         [ # Tree type list
         "Maple",
         "Oak",
